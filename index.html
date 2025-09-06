@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PORTALPOP CINE</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <header>
+    <h1>Portalpop Cines</h1>
+  </header>
+
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Cartelera</a>
+    <a href="#">Próximos Estrenos</a>
+    <a href="#">Contacto</a>
+    </nav>
+  <div class="headline-container">
+    <h2>¿Qué querés ver hoy? </h2>
+  </div>
+<h3>
+<div>
+<span class="elementor-headline-dynamic-text"> ¿Terror?</span>
+</div></h3>
+  <div class="container">
+    <!-- Película 1 -->
+    <div class="movie-card">
+      <img src="https://via.placeholder.com/250x350?text=Película+1" alt="Película 1">
+      <div class="info">
+        <h4>Película 1</h4>
+        <p>Una emocionante historia de acción y aventura.</p>
+      </div>
+    </div>
+
+    <!-- Película 2 -->
+    <div class="movie-card">
+      <img src="https://via.placeholder.com/250x350?text=Película+2" alt="Película 2">
+      <div class="info">
+        <h4>Película 2</h4>
+        <p>Drama que explora la complejidad de las emociones humanas.</p>
+      </div>
+    </div>
+
+    <!-- Película 3 -->
+    <div class="movie-card">
+      <img src="https://via.placeholder.com/250x350?text=Película+3" alt="Película 3">
+      <div class="info">
+        <h4>Película 3</h4>
+        <p>Comedia divertida para toda la familia.</p>
+      </div>
+    </div>
+  </div>
+ </div></h3>
+  <div class="container">
+    <!-- Película 4 -->
+    <div class="movie-card">
+      <img src="https://via.placeholder.com/250x350?text=Película+1" alt="Película 1">
+      <div class="info">
+        <h4>Película 4</h4>
+        <p>Una emocionante historia de acción y aventura.</p>
+      </div>
+    </div>
+
+    <!-- Película 5 -->
+    <div class="movie-card">
+      <img src="https://via.placeholder.com/250x350?text=Película+2" alt="Película 2">
+      <div class="info">
+        <h4>Película 5</h4>
+        <p>Drama que explora la complejidad de las emociones humanas.</p>
+      </div>
+    </div>
+
+    <!-- Película 6 -->
+    <div class="movie-card">
+      <img src="https://via.placeholder.com/250x350?text=Película+3" alt="Película 3">
+      <div class="info">
+        <h4>Película 6</h4>
+        <p>Comedia divertida para toda la familia.</p>
+      </div>
+    </div>
+  </div>
+  </div></h3>
+  <div class="container">
+    <!-- Película 7 -->
+    <div class="movie-card">
+      <img src="https://via.placeholder.com/250x350?text=Película+1" alt="Película 1">
+      <div class="info">
+        <h4>Película 7</h4>
+        <p>Una emocionante historia de acción y aventura.</p>
+      </div>
+    </div>
+
+    <!-- Película 8 -->
+    <div class="movie-card">
+      <img src="https://via.placeholder.com/250x350?text=Película+2" alt="Película 2">
+      <div class="info">
+        <h4>Película 8</h4>
+        <p>Drama que explora la complejidad de las emociones humanas.</p>
+      </div>
+    </div>
+
+    <!-- Película 9 -->
+    <div class="movie-card">
+      <img src="https://via.placeholder.com/250x350?text=Película+3" alt="Película 3">
+      <div class="info">
+        <h4>Película 9</h4>
+        <p>Comedia divertida para toda la familia.</p>
+      </div>
+    </div>
+  </div>
+<footer class="footer">
+    © 2025 Portal de Cine. Todos los derechos reservados.
+</footer>
+<script>
+    const palabras = ["¿Terror?", "¿Comedia?", "¿Acción?", "¿Drama?", "¿Ciencia ficción?", "¿Suspenso?", "¿Aventura?", "¿Cine argentino?"];
+    let index = 0;
+
+    const dynamicText = document.querySelector('.elementor-headline-dynamic-text');
+
+    setInterval(() => {
+      index = (index + 1) % palabras.length;
+      dynamicText.style.opacity = 0;
+
+      setTimeout(() => {
+        dynamicText.textContent = palabras[index];
+        dynamicText.style.opacity = 1;
+      }, 500);
+    }, 2000); // Cambia cada 2 segundos
+  </script>
+</body>
+</html>
