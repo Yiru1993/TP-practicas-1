@@ -5,12 +5,12 @@
       background-attachment: fixed;
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #490b8f; /*violeta oscuro*/
+      background-color: #490b8f;
       color: #ffffff;
     }
 
     header {
-      background-color: #0f0e0e; /* tono oscuro */
+      background-color: #0f0e0e;
       padding: 20px;
       text-align: center;
     }

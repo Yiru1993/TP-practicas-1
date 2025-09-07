@@ -11,4 +11,4 @@ setInterval(() => {
     dynamicText.textContent = palabras[index];
     dynamicText.style.opacity = 1;
   }, 500);
-}, 2000); // Cambia cada 2 segundos
+}, 2000);
