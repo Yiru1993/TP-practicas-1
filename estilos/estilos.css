@@ -1,5 +1,5 @@
  body {
-      background-image: url(butak.jpg);
+      background-image: url("../imagenes/butak.jpg");
       background-position: center;
       background-size: cover;
       background-attachment: fixed;
