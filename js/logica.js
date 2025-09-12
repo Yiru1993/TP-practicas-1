@@ -1,6 +1,8 @@
-const loginModal = document.getElementById('loginModal')
-const loginButton = document.getElementById('loginButton')
-const loginAcceptButton = document.getElementById('loginAcceptButton')
+const loginModal = document.getElementById('loginModal');
+const loginButton = document.getElementById('loginButton');
+const loginAcceptButton = document.getElementById('loginAcceptButton');
+const cancelModalButton = document.getElementById('cancelModalButton');
+const closeModalButton = document.getElementById('closeModalButton');
 const dynamicText = document.querySelector('.elementor-headline-dynamic-text');
 const palabras = ["¿Terror?", "¿Comedia?", "¿Acción?", "¿Drama?", "¿Ciencia ficción?", "¿Suspenso?", "¿Aventura?", "¿Cine argentino?"];
 let index = 0;
@@ -11,6 +13,8 @@ loginModal.addEventListener('shown.bs.modal', () => {
 })
 
 loginAcceptButton.addEventListener('click', handleLogin);
+cancelModalButton.addEventListener('click', cleanModal);
+closeModalButton.addEventListener('click', cleanModal);
 
 setInterval(() => {
   index = (index + 1) % palabras.length;
@@ -42,4 +46,20 @@ function handleLogin() {
         invalidPassword.hidden=false;
         passwordInput.classList.toggle("is-invalid");
     }
+}
+
+function cleanModal() {
+    let emailInput = document.getElementById('emailInput');
+    emailInput.classList.remove("is-invalid");
+    emailInput.value = "";
+    let invalidEmail = document.getElementById('invalid-email');
+    invalidEmail.classList.remove("invalid-feedback");
+    invalidEmail.hidden=true;
+
+    let passwordInput = document.getElementById('passwordInput');
+    passwordInput.classList.remove("is-invalid");
+    passwordInput.value = "";
+    let invalidPassword = document.getElementById('invalid-password');
+    invalidPassword.classList.remove("invalid-feedback");
+    invalidPassword.hidden=true;
 }
