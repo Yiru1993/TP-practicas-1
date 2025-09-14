@@ -22,7 +22,8 @@ setInterval(() => {
   }, 500);
 }, 2000);
 
-function handleLogin() {
+function handleLogin(event) {
+    event.preventDefault();
     let validation = true;
 
     let emailInput = document.getElementById('emailInput');
@@ -40,7 +41,7 @@ function handleLogin() {
 
     let passwordInput = document.getElementById('passwordInput');
     let invalidPassword = document.getElementById('invalid-password');
-    if (passwordInput.value === '') {
+    if (passwordInput.value.trim() === '') {
         invalidPassword.classList.add("invalid-feedback");
         invalidPassword.hidden=false;
         passwordInput.classList.add("is-invalid");
@@ -56,7 +57,8 @@ function handleLogin() {
         if (password === passwordInput.value) {
             console.log("Login OK");
             cleanModal();
-            // TODO no se cierra el modal
+            let modal = bootstrap.Modal.getInstance(loginModal)
+            modal.hide();
             // TODO agregar mensaje de accion exitosa
         } else {
             console.log("Login ERROR");

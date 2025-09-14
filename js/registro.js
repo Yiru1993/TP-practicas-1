@@ -15,6 +15,7 @@ function handleSubmit() {
         localStorage.setItem(emailInputRegistro.value, passwordInputRegistro.value);
         location.href = "/index.html";
         // TODO agregar mensaje de accion exitosa
+        // TODO Contemplar caso de user existente
     }
 }
 
@@ -23,7 +24,7 @@ function validateInputs() {
 
     // Nombre
     let invalidNombre = document.getElementById('invalid-nombre-registro');
-    if (nombreInputRegistro.value === "") {
+    if (nombreInputRegistro.value.trim() === "") {
         invalidNombre.classList.add("invalid-feedback");
         invalidNombre.hidden=false;
         nombreInputRegistro.classList.add("is-invalid");
@@ -36,7 +37,7 @@ function validateInputs() {
 
     // Direccion
     let invalidDireccion = document.getElementById('invalid-direccion-registro');
-    if (direccionInputRegistro.value === "") {
+    if (direccionInputRegistro.value.trim() === "") {
         invalidDireccion.classList.add("invalid-feedback");
         invalidDireccion.hidden=false;
         direccionInputRegistro.classList.add("is-invalid");
@@ -49,7 +50,7 @@ function validateInputs() {
 
     // Telefono
     let invalidTel = document.getElementById('invalid-tel-registro');
-    if (telInputRegistro.value === "") {
+    if (telInputRegistro.value.trim() === "") {
         invalidTel.classList.add("invalid-feedback");
         invalidTel.hidden=false;
         telInputRegistro.classList.add("is-invalid");
