@@ -36,22 +36,22 @@ nav a:hover {
   text-decoration: underline;
 }
 
-h2 {
+div h2 {
 color: white;
-padding: 50px;
-font-size: 80px;
+padding: 30px;
+font-size: 60px;
 text-align: center;
 }
 
-h3 {
-color: rgb(241, 7, 7);
-padding: 25px;
+div h3 {
+color: red;
+padding: 10px;
 font-size: 40px;
 text-align: center;
 }
 
 .container {
-  padding: 20px;
+  padding: 5px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -64,34 +64,25 @@ text-align: center;
   justify-content: center;
 }
 
-.movie-card{
-  background-color: #2e2e2e;
-  border-radius: 10px;
-  width: 250px;
-  margin: 15px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transition: transform 0.3s;
+.card{
+  background-color: #070707;
+  border-radius: 5px;
+  width: 200px;
+  margin: 20px;
 }
 
 .movie-card:hover {
   transform: scale(1.05);
 }
 
-.movie-card img {
+.card img {
   width: 100%;
-  height: 350px;
+  height: 400px;
   object-fit: cover;
+  overflow: hidden;
+  box-shadow: 0 6px 8px rgba(243, 247, 3, 0.959);
+  transition: transform 0.3s;
 }
-
-.movie-card .info {
-  padding: 15px;
-}
-
-.movie-card .info h3 {
-  margin: 0 0 10px;
-}
-
 .footer {
   background-color: #1a1a1a;
   color: #ccc;
