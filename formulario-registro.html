@@ -32,6 +32,16 @@
         </div>
     </nav>
 
+    <div hidden id="toastRegistro" class="container-toast">
+      <div class="toast align-items-center text-bg-success border-0 fade show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+            Registro terminado correctamente.
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
       <div class="card mx-auto" style="width: 75%;">
         <div class="card-body">
@@ -76,7 +86,7 @@
                 </div>
               </div>
               <div id="ayudaPassword" class="form-text">
-                  Debe tener entre 8 o 20 caracteres y contener numeros y letras
+                  Debe tener entre 8 o 20 caracteres y contener numeros y letras en minuscula y mayuscula
               </div>
               <button id="submitButton" type="button" class="btn btn-danger float-end">Crear usuario</button>
             </form>
