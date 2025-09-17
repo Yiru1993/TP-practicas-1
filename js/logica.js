@@ -3,18 +3,18 @@ const loginButton = document.getElementById('loginButton');
 const loginAcceptButton = document.getElementById('loginAcceptButton');
 const cancelModalButton = document.getElementById('cancelModalButton');
 const closeModalButton = document.getElementById('closeModalButton');
+const sessionToast = document.getElementById("toastSesion");
+const buttonCloseSesion = document.getElementById("buttonCloseSesion");
 const dynamicText = document.querySelector('.elementor-headline-dynamic-text');
 const palabras = ["¿Terror?", "¿Comedia?", "¿Acción?", "¿Drama?", "¿Ciencia ficción?", "¿Suspenso?", "¿Aventura?", "¿Cine argentino?"];
 let index = 0;
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-loginModal.addEventListener('shown.bs.modal', () => {
-    loginButton.focus();
-})
 
 loginAcceptButton.addEventListener('click', handleLogin);
 cancelModalButton.addEventListener('click', cleanModal);
 closeModalButton.addEventListener('click', cleanModal);
+buttonCloseSesion.addEventListener('click', dismissSessionToast);
 
 setInterval(() => {
   index = (index + 1) % palabras.length;
@@ -27,25 +27,51 @@ setInterval(() => {
 }, 2000);
 
 function handleLogin() {
+    let validation = true;
+
     let emailInput = document.getElementById('emailInput');
-    if (emailRegex.test(emailInput.value)) {
-        console.log("Email ok");
-    } else {
-        let invalidEmail = document.getElementById('invalid-email');
-        invalidEmail.classList.toggle("invalid-feedback");
+    let invalidEmail = document.getElementById('invalid-email');
+    if (!emailRegex.test(emailInput.value)) {
+        invalidEmail.classList.add("invalid-feedback");
         invalidEmail.hidden=false;
-        emailInput.classList.toggle("is-invalid");
+        emailInput.classList.add("is-invalid");
+        validation = false;
+    } else {
+        invalidEmail.classList.remove("invalid-feedback");
+        invalidEmail.hidden=true;
+        emailInput.classList.remove("is-invalid");
     }
 
     let passwordInput = document.getElementById('passwordInput');
-    if (passwordInput.value !== '') {
-        console.log("Password ok");
-    } else {
-        let invalidPassword = document.getElementById('invalid-password');
-        invalidPassword.classList.toggle("invalid-feedback");
+    let invalidPassword = document.getElementById('invalid-password');
+    if (passwordInput.value.trim() === '') {
+        invalidPassword.classList.add("invalid-feedback");
         invalidPassword.hidden=false;
-        passwordInput.classList.toggle("is-invalid");
+        passwordInput.classList.add("is-invalid");
+        validation = false;
+    } else {
+        invalidPassword.classList.remove("invalid-feedback");
+        invalidPassword.hidden=true;
+        passwordInput.classList.remove("is-invalid");
     }
+
+    if (validation) {
+        let password = localStorage.getItem(emailInput.value);
+        if (password === passwordInput.value) {
+            console.log("Login OK");
+            cleanModal();
+            let modal = bootstrap.Modal.getInstance(loginModal)
+            modal.hide();
+            sessionToast.hidden = false;
+        } else {
+            console.log("Login ERROR");
+            invalidPassword.classList.add("invalid-feedback");
+            invalidPassword.hidden = false;
+            passwordInput.classList.add("is-invalid");
+            validation = false;
+        }
+    }
+
 }
 
 function cleanModal() {
@@ -54,12 +80,16 @@ function cleanModal() {
     emailInput.value = "";
     let invalidEmail = document.getElementById('invalid-email');
     invalidEmail.classList.remove("invalid-feedback");
-    invalidEmail.hidden=true;
+    invalidEmail.hidden = true;
 
     let passwordInput = document.getElementById('passwordInput');
     passwordInput.classList.remove("is-invalid");
     passwordInput.value = "";
     let invalidPassword = document.getElementById('invalid-password');
     invalidPassword.classList.remove("invalid-feedback");
-    invalidPassword.hidden=true;
+    invalidPassword.hidden = true;
+}
+
+function dismissSessionToast() {
+    sessionToast.hidden = true;
 }
