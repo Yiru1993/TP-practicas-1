@@ -174,3 +174,95 @@ h3 {
   padding: 15px;
   margin-top: auto;
 }
+ body {
+  background-image: url("../imagenes/butak.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+}
+
+header {
+  background-color: #0f0e0e;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+nav {
+  background-color: #333;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: #ffffff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+div h2 {
+color: white;
+padding: 30px;
+font-size: 60px;
+text-align: center;
+}
+
+div h3 {
+color: red;
+padding: 10px;
+font-size: 40px;
+text-align: center;
+}
+
+.container {
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container-toast {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card{
+  background-color: #070707;
+  border-radius: 5px;
+  width: 200px;
+  margin: 20px;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  overflow: hidden;
+  box-shadow: 0 6px 8px rgba(243, 247, 3, 0.959);
+  transition: transform 0.3s;
+}
+.footer {
+  background-color: #1a1a1a;
+  color: #ccc;
+  text-align: center;
+  padding: 15px;
+  margin-top: 500px;
+}

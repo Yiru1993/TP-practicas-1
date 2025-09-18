@@ -3,44 +3,28 @@ const loginButton = document.getElementById('loginButton');
 const loginAcceptButton = document.getElementById('loginAcceptButton');
 const cancelModalButton = document.getElementById('cancelModalButton');
 const closeModalButton = document.getElementById('closeModalButton');
+const sessionToast = document.getElementById("toastSesion");
+const buttonCloseSesion = document.getElementById("buttonCloseSesion");
 const dynamicText = document.querySelector('.elementor-headline-dynamic-text');
-const generoSpan = document.getElementById('genero-animado');
-
-// Carrusel de preguntas/frases
-const frases = [
-  "¿Terror?", "¿Comedia?", "¿Acción?", "¿Drama?", "¿Ciencia ficción?", "¿Suspenso?", "¿Aventura?", "¿Cine argentino?"
-];
-let fraseIndex = 0;
-setInterval(() => {
-  fraseIndex = (fraseIndex + 1) % frases.length;
-  dynamicText.style.opacity = 0;
-  setTimeout(() => {
-    dynamicText.textContent = frases[fraseIndex];
-    dynamicText.style.opacity = 1;
-  }, 500);
-}, 2000);
-
-// Carrusel de géneros
-const generos = [
-  "Acción", "Aventura", "Comedia", "Drama", "Terror", "Suspenso",
-  "Ciencia ficción", "Fantasía", "Romance", "Musical", "Animación",
-  "Documental", "Crimen", "Bélico", "Western"
-];
-let generoIndex = 0;
-setInterval(() => {
-  generoIndex = (generoIndex + 1) % generos.length;
-  generoSpan.style.opacity = 0;
-  setTimeout(() => {
-    generoSpan.textContent = generos[generoIndex];
-    generoSpan.style.opacity = 1;
-  }, 500);
-}, 1500);
-
+const palabras = ["¿Terror?", "¿Comedia?", "¿Acción?", "¿Drama?", "¿Ciencia ficción?", "¿Suspenso?", "¿Aventura?", "¿Cine argentino?"];
+let index = 0;
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 
 loginAcceptButton.addEventListener('click', handleLogin);
 cancelModalButton.addEventListener('click', cleanModal);
 closeModalButton.addEventListener('click', cleanModal);
+buttonCloseSesion.addEventListener('click', dismissSessionToast);
+
+setInterval(() => {
+  index = (index + 1) % palabras.length;
+  dynamicText.style.opacity = 0;
+
+  setTimeout(() => {
+    dynamicText.textContent = palabras[index];
+    dynamicText.style.opacity = 1;
+  }, 500);
+}, 2000);
 
 function handleLogin() {
     let validation = true;
@@ -60,7 +44,7 @@ function handleLogin() {
 
     let passwordInput = document.getElementById('passwordInput');
     let invalidPassword = document.getElementById('invalid-password');
-    if (passwordInput.value === '') {
+    if (passwordInput.value.trim() === '') {
         invalidPassword.classList.add("invalid-feedback");
         invalidPassword.hidden=false;
         passwordInput.classList.add("is-invalid");
@@ -76,10 +60,15 @@ function handleLogin() {
         if (password === passwordInput.value) {
             console.log("Login OK");
             cleanModal();
-            // TODO no se cierra el modal
-            // TODO agregar mensaje de accion exitosa
+            let modal = bootstrap.Modal.getInstance(loginModal)
+            modal.hide();
+            sessionToast.hidden = false;
         } else {
             console.log("Login ERROR");
+            invalidPassword.classList.add("invalid-feedback");
+            invalidPassword.hidden = false;
+            passwordInput.classList.add("is-invalid");
+            validation = false;
         }
     }
 
@@ -91,12 +80,16 @@ function cleanModal() {
     emailInput.value = "";
     let invalidEmail = document.getElementById('invalid-email');
     invalidEmail.classList.remove("invalid-feedback");
-    invalidEmail.hidden=true;
+    invalidEmail.hidden = true;
 
     let passwordInput = document.getElementById('passwordInput');
     passwordInput.classList.remove("is-invalid");
     passwordInput.value = "";
     let invalidPassword = document.getElementById('invalid-password');
     invalidPassword.classList.remove("invalid-feedback");
-    invalidPassword.hidden=true;
+    invalidPassword.hidden = true;
+}
+
+function dismissSessionToast() {
+    sessionToast.hidden = true;
 }
