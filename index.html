@@ -9,28 +9,27 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
-<body>
+<body id="pagina-index">
 
-  <header>
+  <!-- HEADER -->
+  <header class="text-center py-4">
     <h1>PORTALPOP CINE</h1>
   </header>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbar">
+      <!--<a class="navbar-brand" href="index.html">CríticaPop</a>-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Cartelera</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Próximos Estrenos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
-          </li>
+          <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="cartelera.html">Cartelera</a></li>
+          <li class="nav-item"><a class="nav-link" href="estrenos.html">Próximos Estrenos</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
         </ul>
           <button id="loginButton" class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Ingresar</button>
           
@@ -189,9 +188,200 @@
     </div>
   </div>
 
-<footer class="footer">
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container mt-4">
+    <div class="headline-container text-center mb-5">
+      <h2>¿Qué querés ver hoy?</h2>
+      <h3>
+        <span class="elementor-headline-dynamic-text">¿Terror?</span>
+      </h3>
+      <div class="mt-3">
+        <span id="genero-animado" class="badge fs-5 px-4 py-2">Acción</span>
+      </div>
+    </div>
+    
+
+    <!-- GRID DE PELÍCULAS POR GÉNERO -->
+    <div class="row g-4">
+      <!-- 1. Acción -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/250x350?text=Acción" alt="Acción" class="img-fluid rounded">
+          <div class="info mt-2">
+            <h4>Acción</h4>
+            <p>Ejemplo: John Wick</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Aventura -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/250x350?text=Aventura" alt="Aventura" class="img-fluid rounded">
+          <div class="info mt-2">
+            <h4>Aventura</h4>
+            <p>Ejemplo: Indiana Jones</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Comedia -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/250x350?text=Comedia" alt="Comedia" class="img-fluid rounded">
+          <div class="info mt-2">
+            <h4>Comedia</h4>
+            <p>Ejemplo: ¿Qué pasó ayer?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Drama -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/250x350?text=Drama" alt="Drama" class="img-fluid rounded">
+          <div class="info mt-2">
+            <h4>Drama</h4>
+            <p>Ejemplo: El Padrino</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Terror -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/250x350?text=Terror" alt="Terror" class="img-fluid rounded">
+          <div class="info mt-2">
+            <h4>Terror</h4>
+            <p>Ejemplo: El Conjuro</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Suspenso / Thriller -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/250x350?text=Thriller" alt="Suspenso" class="img-fluid rounded">
+          <div class="info mt-2">
+            <h4>Suspenso</h4>
+            <p>Ejemplo: Seven</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Ciencia ficción -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/250x350?text=Ciencia+Ficción" alt="Ciencia ficción" class="img-fluid rounded">
+          <div class="info mt-2">
+            <h4>Ciencia ficción</h4>
+            <p>Ejemplo: Matrix</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Fantasía -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/250x350?text=Fantasía" alt="Fantasía" class="img-fluid rounded">
+          <div class="info mt-2">
+            <h4>Fantasía</h4>
+            <p>Ejemplo: El Señor de los Anillos</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Romance -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/250x350?text=Romance" alt="Romance" class="img-fluid rounded">
+          <div class="info mt-2">
+            <h4>Romance</h4>
+            <p>Ejemplo: Titanic</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Musical -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/250x350?text=Musical" alt="Musical" class="img-fluid rounded">
+          <div class="info mt-2">
+            <h4>Musical</h4>
+            <p>Ejemplo: La La Land</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. Animación -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/250x350?text=Animación" alt="Animación" class="img-fluid rounded">
+          <div class="info mt-2">
+            <h4>Animación</h4>
+            <p>Ejemplo: Toy Story</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. Documental -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/250x350?text=Documental" alt="Documental" class="img-fluid rounded">
+          <div class="info mt-2">
+            <h4>Documental</h4>
+            <p>Ejemplo: Free Solo</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 13. Crimen / Policial -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/250x350?text=Crimen" alt="Crimen" class="img-fluid rounded">
+          <div class="info mt-2">
+            <h4>Crimen</h4>
+            <p>Ejemplo: Los Infiltrados</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 14. Bélico -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/250x350?text=Bélico" alt="Bélico" class="img-fluid rounded">
+          <div class="info mt-2">
+            <h4>Bélico</h4>
+            <p>Ejemplo: Rescatando al Soldado Ryan</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 15. Western -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/250x350?text=Western" alt="Western" class="img-fluid rounded">
+          <div class="info mt-2">
+            <h4>Western</h4>
+            <p>Ejemplo: Sin Perdón</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer text-center py-3 mt-5 bg-dark text-light">
     © 2025 Portal de Cine. Todos los derechos reservados.
+<<<<<<< HEAD
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./js/logica.js"></script>
+=======
 </footer>
 
+>>>>>>> 55a5deae4c6a1a15ab43209a562ec5233eabaf4a
 </body>
 </html>
