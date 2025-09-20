@@ -93,3 +93,34 @@ function cleanModal() {
 function dismissSessionToast() {
     sessionToast.hidden = true;
 }
+
+// Lógica de puntuación de estrellas
+document.querySelectorAll('.star-rating').forEach(rating => {
+    const stars = rating.querySelectorAll('.star');
+    stars.forEach(star => {
+        star.addEventListener('mouseover', function() {
+            const val = parseInt(this.getAttribute('data-value'));
+            stars.forEach(s => {
+                if (parseInt(s.getAttribute('data-value')) <= val) {
+                    s.classList.add('selected');
+                } else {
+                    s.classList.remove('selected');
+                }
+            });
+        });
+        star.addEventListener('mouseout', function() {
+            stars.forEach(s => s.classList.remove('selected'));
+        });
+        star.addEventListener('click', function() {
+            const val = parseInt(this.getAttribute('data-value'));
+            stars.forEach(s => {
+                if (parseInt(s.getAttribute('data-value')) <= val) {
+                    s.classList.add('selected');
+                } else {
+                    s.classList.remove('selected');
+                }
+            });
+            // Aquí podrías guardar la puntuación en localStorage o enviarla a un backend
+        });
+    });
+});
