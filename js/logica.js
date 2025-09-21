@@ -6,6 +6,7 @@ const closeModalButton = document.getElementById('closeModalButton');
 const sessionToast = document.getElementById("toastSesion");
 const buttonCloseSesion = document.getElementById("buttonCloseSesion");
 const busqueda = document.getElementById('busqueda');
+const grilla = document.getElementById('grilla');
 const dynamicText = document.querySelector('.elementor-headline-dynamic-text');
 const palabras = ["¿Terror?", "¿Comedia?", "¿Acción?", "¿Drama?", "¿Ciencia ficción?", "¿Suspenso?", "¿Aventura?", "¿Cine argentino?"];
 let index = 0;
@@ -101,11 +102,11 @@ function handleSearch(e) {
     let peliculas = document.querySelectorAll('.card-title');
     peliculas.forEach(p => {
         if (p.innerHTML.toLowerCase().includes(e.target.value.toLowerCase())) {
-            p.parentElement.parentElement.hidden = false;
+            p.parentElement.parentElement.parentElement.hidden = false;
         } else {
-            p.parentElement.parentElement.hidden = true;
+            p.parentElement.parentElement.parentElement.hidden = true;
         }
-    });   
+    });
 }
 
 // Lógica de puntuación de estrellas
