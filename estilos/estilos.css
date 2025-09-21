@@ -5,20 +5,25 @@
   justify-content: flex-end;
   margin-bottom: 8px;
 }
+
 .star {
   font-size: 1.5rem;
   color: #ccc;
   cursor: pointer;
   transition: color 0.2s;
 }
+
 .star.selected,
 .star:hover,
 .star:hover ~ .star {
   color: gold;
 }
-/* =========================
-   Fuente y estilos globales
-   ========================= */
+
+.busqueda {
+  width: 35% !important;
+}  
+
+/* Fuente y estilos globales */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
 * {
@@ -36,12 +41,13 @@ body#pagina-cartelera {
   background-attachment: fixed;
   margin: 0;
 }
+
 /*titulo cartelera*/
 .mb-4 {
   color: white;
-padding: 30px;
-font-size: 40px;
-text-align: center;
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
  } 
 
 /* Estrenos con imagen de ejemplo */
@@ -57,12 +63,10 @@ body#pagina-contacto {
   background: linear-gradient(135deg, #0d1a3a, #000000);
 }
 
-/* =========================
-   Navbar
-   ========================= */
+/* Navbar */
 .navbar {
   background-color: rgba(20, 20, 20, 0.9) !important;
-   margin-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 .navbar-brand {
@@ -80,9 +84,8 @@ body#pagina-contacto {
   color: #ff4c4c !important;
   transform: scale(1.1);
 }
-/* =========================
-    body 
-   ========================= */
+
+/* body */
 body {
   background-image: url("../imagenes/butak.jpg");
   background-position: center;
@@ -92,10 +95,8 @@ body {
   font-family: Arial, sans-serif;
   color: #ffffff;
 }
-/* =========================
-   Header
-   ========================= */
 
+/* Header */ 
 header {
   background-color: #0f0e0e;
   padding: 20px;
@@ -124,32 +125,30 @@ nav a {
 nav a:hover {
   text-decoration: underline;
 }
-/* =========================
-   Titulares
-   ========================= */
+
+/* Titulares */
 div h2 {
-color: white;
-padding: 30px;
-font-size: 60px;
-text-align: center;
+  color: white;
+  padding: 30px;
+  font-size: 60px;
+  text-align: center;
 }
 
 h2 {
-color: white;
-padding: 30px;
-font-size: 60px;
-text-align: center;
+  color: white;
+  padding: 30px;
+  font-size: 60px;
+  text-align: center;
 }
 
 div h3 {
-color: red;
-padding: 10px;
-font-size: 40px;
-text-align: center;
+  color: red;
+  padding: 10px;
+  font-size: 40px;
+  text-align: center;
 }
-/* =========================
-   container
-   ========================= */
+
+/* container */
 .container {
   padding: 5px;
   display: flex;
@@ -163,10 +162,8 @@ text-align: center;
   flex-wrap: wrap;
   justify-content: center;
 }
-/* =========================
-   card
-   ========================= */
 
+/* card */
 .card{
   background-color: #070707;
   border-radius: 10x;
@@ -187,9 +184,8 @@ text-align: center;
   box-shadow: 0 8px 8px rgba(243, 33, 33, 0.959);
   transition: transform 0.3s;
 }
-/* =========================
-    footer
-   ========================= */
+
+/* footer */
 .footer {
   background-color: #1a1a1a;
   color: #ccc;
