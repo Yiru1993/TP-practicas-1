@@ -5,6 +5,7 @@ const cancelModalButton = document.getElementById('cancelModalButton');
 const closeModalButton = document.getElementById('closeModalButton');
 const sessionToast = document.getElementById("toastSesion");
 const buttonCloseSesion = document.getElementById("buttonCloseSesion");
+const busqueda = document.getElementById('busqueda');
 const dynamicText = document.querySelector('.elementor-headline-dynamic-text');
 const palabras = ["¿Terror?", "¿Comedia?", "¿Acción?", "¿Drama?", "¿Ciencia ficción?", "¿Suspenso?", "¿Aventura?", "¿Cine argentino?"];
 let index = 0;
@@ -15,6 +16,7 @@ loginAcceptButton.addEventListener('click', handleLogin);
 cancelModalButton.addEventListener('click', cleanModal);
 closeModalButton.addEventListener('click', cleanModal);
 buttonCloseSesion.addEventListener('click', dismissSessionToast);
+busqueda.addEventListener('input', handleSearch);
 
 setInterval(() => {
   index = (index + 1) % palabras.length;
@@ -94,6 +96,18 @@ function dismissSessionToast() {
     sessionToast.hidden = true;
 }
 
+function handleSearch(e) {
+    e.preventDefault();
+    let peliculas = document.querySelectorAll('.card-title');
+    peliculas.forEach(p => {
+        if (p.innerHTML.toLowerCase().includes(e.target.value.toLowerCase())) {
+            p.parentElement.parentElement.hidden = false;
+        } else {
+            p.parentElement.parentElement.hidden = true;
+        }
+    });   
+}
+
 // Lógica de puntuación de estrellas
 document.querySelectorAll('.star-rating').forEach(rating => {
     const stars = rating.querySelectorAll('.star');
@@ -120,7 +134,6 @@ document.querySelectorAll('.star-rating').forEach(rating => {
                     s.classList.remove('selected');
                 }
             });
-            // Aquí podrías guardar la puntuación en localStorage o enviarla a un backend
         });
     });
 });
