@@ -6,7 +6,6 @@ const closeModalButton = document.getElementById('closeModalButton');
 const sessionToast = document.getElementById("toastSesion");
 const buttonCloseSesion = document.getElementById("buttonCloseSesion");
 const busqueda = document.getElementById('busqueda');
-const grilla = document.getElementById('grilla');
 const dynamicText = document.querySelector('.elementor-headline-dynamic-text');
 const palabras = ["¿Terror?", "¿Comedia?", "¿Acción?", "¿Drama?", "¿Ciencia ficción?", "¿Suspenso?", "¿Aventura?", "¿Cine argentino?"];
 let index = 0;
