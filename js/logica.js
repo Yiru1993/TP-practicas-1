@@ -6,13 +6,14 @@ const closeModalButton = document.getElementById('closeModalButton');
 const sessionToast = document.getElementById("toastSesion");
 const buttonCloseSesion = document.getElementById("buttonCloseSesion");
 const busqueda = document.getElementById('busqueda');
+const formLogin = document.getElementById('formLogin');
 const dynamicText = document.querySelector('.elementor-headline-dynamic-text');
 const palabras = ["¿Terror?", "¿Comedia?", "¿Acción?", "¿Drama?", "¿Ciencia ficción?", "¿Suspenso?", "¿Aventura?", "¿Cine argentino?"];
 let index = 0;
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 
-loginAcceptButton.addEventListener('click', handleLogin);
+formLogin.addEventListener('submit', handleLogin);
 cancelModalButton.addEventListener('click', cleanModal);
 closeModalButton.addEventListener('click', cleanModal);
 buttonCloseSesion.addEventListener('click', dismissSessionToast);
@@ -28,7 +29,8 @@ setInterval(() => {
   }, 500);
 }, 2000);
 
-function handleLogin() {
+function handleLogin(event) {
+    event.preventDefault();
     let validation = true;
 
     let emailInput = document.getElementById('emailInput');
@@ -73,7 +75,7 @@ function handleLogin() {
             validation = false;
         }
     }
-
+    return false;
 }
 
 function cleanModal() {
