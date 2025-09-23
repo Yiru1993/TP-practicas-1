@@ -24,7 +24,12 @@
 
 .busqueda {
   width: 35% !important;
-}  
+}
+
+.container-cards {
+  display: flex;
+  justify-content: center;
+}
 
 * {
   margin: 0;
