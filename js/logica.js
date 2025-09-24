@@ -96,7 +96,7 @@ function handleSearch(event) {
     event.preventDefault();
     let peliculas = document.querySelectorAll('.card-title');
     peliculas.forEach(p => {
-        if (p.innerHTML.toLowerCase().includes(e.target.value.toLowerCase())) {
+        if (p.innerHTML.toLowerCase().includes(event.target.value.toLowerCase())) {
             p.parentElement.parentElement.parentElement.hidden = false;
         } else {
             p.parentElement.parentElement.parentElement.hidden = true;
