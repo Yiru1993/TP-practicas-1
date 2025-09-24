@@ -24,6 +24,7 @@
 
 .busqueda {
   width: 35% !important;
+  box-shadow: 0 8px 8px rgba(243, 33, 33, 0.959);
 }
 
 .container-cards {
@@ -175,7 +176,6 @@ div h3 {
   margin: 20px;
 }
 
-
 .movie-card:hover {
   transform: scale(1.05);
 }
@@ -187,8 +187,8 @@ div h3 {
   box-shadow: 0 8px 8px rgba(243, 33, 33, 0.959);
   transition: transform 0.3s;
 }
+
 .card-text2{
-  
   width: 550px;
   text-align: left;
 
