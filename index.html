@@ -36,26 +36,28 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="modalTitle">Inicio de sesion</h1>
+                  <h1 class="modal-title fs-5" id="modalTitle">Inicio de sesión</h1>
                   <button id="closeModalButton" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form id="formLogin">
 
                 <div class="modal-body">
                     <div class="mb-3">
-                      <p class="text-start">Correo electronico</p>
+                      <p class="text-start">Correo electrónico</p>
                       <input id="emailInput" type="email" class="form-control">
-                      <div id="invalid-email" hidden>
-                        <p class="text-start">Correo invalido</p>
+                      <div id="invalid-email" class="invalid-feedback" hidden>
+                        <p class="text-start">Correo inválido</p>
                       </div>
                     </div>
+
                     <div class="mb-3">
                       <p class="text-start">Contraseña</p>
                       <input id="passwordInput" type="password" class="form-control">
-                      <div id="invalid-password" hidden>
-                        <p class="text-start">Contraseña invalida</p>
+                      <div id="invalid-password" class="invalid-feedback" hidden>
+                        <p class="text-start">Contraseña inválida</p>
                       </div>
                     </div>
+
                 </div>
                 
                 <div class="modal-footer">
@@ -63,7 +65,6 @@
                   <button id="cancelModalButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                   <button id="loginAcceptButton" type="submit" class="btn btn-danger">Ingresar</button>
                 </div>
-
               </form>
               </div>
             </div>
@@ -176,7 +177,7 @@
           <img src="./imagenes/los 4 fantasticos.jpg" class="movie-card" alt="Los 4 fantasticos">
           <div class="card-body">
              <h5 class="card-title">Los 4 fantasticos</h5>
-             <p class="card-text"><strong>Género:</strong> Ciencia Ficción, Aventura</p>
+             <p class="card-text"><strong>Género:</strong> Ciencia Ficción, Aventura.</p>
              <div class="star-rating" data-movie="Los 4 fantasticos">
                <span class="star" data-value="1">&#9733;</span>
                <span class="star" data-value="2">&#9733;</span>
@@ -194,7 +195,7 @@
           <img src="./imagenes/Bts_cartelera.jpg" class="movie-card" alt="Bts 2016 live">
           <div class="card-body">
              <h5 class="card-title">Bts 2016 live</h5>
-             <p class="card-text"><strong>Género:</strong> Música</p>
+             <p class="card-text"><strong>Género:</strong> Música.</p>
              <div class="star-rating" data-movie="Bts 2016 live">
                <span class="star" data-value="1">&#9733;</span>
                <span class="star" data-value="2">&#9733;</span>
@@ -230,7 +231,7 @@
           <img src="./imagenes/otro_viernes_de locos.jpg" class="movie-card" alt="Otro viernes de locos">
           <div class="card-body">
             <h5 class="card-title">Otro viernes de locos</h5>
-            <p class="card-text"><strong>Género:</strong> Comedia, Familia</p>
+            <p class="card-text"><strong>Género:</strong> Comedia, Familia.</p>
             <div class="star-rating" data-movie="Otro viernes de locos">
               <span class="star" data-value="1">&#9733;</span>
               <span class="star" data-value="2">&#9733;</span>
@@ -264,7 +265,7 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="footer text-center py-3 mt-5 bg-dark text-light">
     © 2025 Portal de Cine. Todos los derechos reservados.
   </footer>

@@ -7,6 +7,7 @@ const sessionToast = document.getElementById("toastSesion");
 const buttonCloseSesion = document.getElementById("buttonCloseSesion");
 const busqueda = document.getElementById('busqueda');
 const formLogin = document.getElementById('formLogin');
+const forgotPassword = document.getElementById('forgotPassword');
 const dynamicText = document.querySelector('.elementor-headline-dynamic-text');
 const palabras = ["¿Terror?", "¿Comedia?", "¿Acción?", "¿Drama?", "¿Ciencia ficción?", "¿Suspenso?", "¿Aventura?", "¿Cine argentino?"];
 let index = 0;
@@ -18,6 +19,7 @@ cancelModalButton.addEventListener('click', cleanModal);
 closeModalButton.addEventListener('click', cleanModal);
 buttonCloseSesion.addEventListener('click', dismissSessionToast);
 busqueda.addEventListener('input', handleSearch);
+forgotPassword.addEventListener('click', handleForgotPassword);
 
 setInterval(() => {
   index = (index + 1) % palabras.length;
@@ -36,12 +38,10 @@ function handleLogin(event) {
     let emailInput = document.getElementById('emailInput');
     let invalidEmail = document.getElementById('invalid-email');
     if (!emailRegex.test(emailInput.value)) {
-        invalidEmail.classList.add("invalid-feedback");
         invalidEmail.hidden=false;
         emailInput.classList.add("is-invalid");
         validation = false;
     } else {
-        invalidEmail.classList.remove("invalid-feedback");
         invalidEmail.hidden=true;
         emailInput.classList.remove("is-invalid");
     }
@@ -49,12 +49,10 @@ function handleLogin(event) {
     let passwordInput = document.getElementById('passwordInput');
     let invalidPassword = document.getElementById('invalid-password');
     if (passwordInput.value.trim() === '') {
-        invalidPassword.classList.add("invalid-feedback");
         invalidPassword.hidden=false;
         passwordInput.classList.add("is-invalid");
         validation = false;
     } else {
-        invalidPassword.classList.remove("invalid-feedback");
         invalidPassword.hidden=true;
         passwordInput.classList.remove("is-invalid");
     }
@@ -62,13 +60,11 @@ function handleLogin(event) {
     if (validation) {
         let password = localStorage.getItem(emailInput.value);
         if (password === passwordInput.value) {
-            console.log("Login OK");
             cleanModal();
             let modal = bootstrap.Modal.getInstance(loginModal)
             modal.hide();
             sessionToast.hidden = false;
         } else {
-            console.log("Login ERROR");
             invalidPassword.classList.add("invalid-feedback");
             invalidPassword.hidden = false;
             passwordInput.classList.add("is-invalid");
@@ -98,8 +94,8 @@ function dismissSessionToast() {
     sessionToast.hidden = true;
 }
 
-function handleSearch(e) {
-    e.preventDefault();
+function handleSearch(event) {
+    event.preventDefault();
     let peliculas = document.querySelectorAll('.card-title');
     peliculas.forEach(p => {
         if (p.innerHTML.toLowerCase().includes(e.target.value.toLowerCase())) {
@@ -108,6 +104,10 @@ function handleSearch(e) {
             p.parentElement.parentElement.parentElement.hidden = true;
         }
     });
+}
+
+function handleForgotPassword() {
+    alert("Revisa los pasos a seguir que te enviamos por email!");
 }
 
 // Lógica de puntuación de estrellas

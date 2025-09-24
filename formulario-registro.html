@@ -16,7 +16,7 @@
       <h1>PORTALPOP CINE</h1>
     </header>
 
-    <!-- NAVBAR -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-registro" aria-controls="navbar-registro" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,47 +49,48 @@
       <div class="card mx-auto" style="width: 75%;">
         <div class="card-body">
             <form>
+              <h3 style="color: white;">Alta de nuevo usuario</h3>
               <div class="mb-3">
                 <label for="nombreInputRegistro" class="form-label">Nombre completo</label>
                 <input id="nombreInputRegistro" type="text" class="form-control">
                 <div id="invalid-nombre-registro" hidden>
-                  <p class="text-start">Nombre invalido</p>
+                  <p class="text-start">Nombre inválido</p>
                 </div>
               </div>
 
               <div class="mb-3">
-                <label for="direccionInputRegistro" class="form-label">Direccion</label>
+                <label for="direccionInputRegistro" class="form-label">Dirección</label>
                 <input id="direccionInputRegistro" type="text" class="form-control">
                 <div id="invalid-direccion-registro" hidden>
-                  <p class="text-start">Direccion invalido</p>
+                  <p class="text-start">Dirección inválida</p>
                 </div>
               </div>
 
               <div class="mb-3">
-                <label for="telInputRegistro" class="form-label">Telefono</label>
+                <label for="telInputRegistro" class="form-label">Teléfono</label>
                 <input id="telInputRegistro" type="number" min="0" class="form-control">
                 <div id="invalid-tel-registro" hidden>
-                  <p class="text-start">Telefono invalido</p>
+                  <p class="text-start">Teléfono inválido</p>
                 </div>
               </div>
 
               <div class="mb-3">
-                <label for="emailInputRegistro" class="form-label">Correo electronico</label>
+                <label for="emailInputRegistro" class="form-label">Correo electrónico</label>
                 <input id="emailInputRegistro" type="email" class="form-control">
                 <div id="invalid-email-registro" hidden>
-                  <p class="text-start">Correo invalido</p>
+                  <p class="text-start">Correo inválido</p>
                 </div>
               </div>
 
               <div class="mb-3">
-                <label for="passwordInputRegistro" class="form-label">Contraseña</label>
+                <label for="passwordInputRegistro" class="form-label">Contraseña *</label>
                 <input id="passwordInputRegistro" type="password" class="form-control"  aria-describedby="ayudaPassword">
                 <div id="invalid-password-registro" hidden>
-                  <p class="text-start">Contraseña invalida</p>
+                  <p class="text-start">Contraseña inválida</p>
                 </div>
               </div>
               <div id="ayudaPassword" class="form-text">
-                  Debe tener entre 8 o 20 caracteres y contener numeros y letras en minuscula y mayuscula
+                  * Debe tener de 8 a 20 caracteres y contener números, mayusculas y minusculas.
               </div>
               <button id="submitButton" type="button" class="btn btn-danger float-end">Crear usuario</button>
             </form>
@@ -97,7 +98,7 @@
       </div>
     </div>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="footer text-center py-3 mt-5 bg-dark text-light">
     © 2025 Portal de Cine. Todos los derechos reservados.
   </footer>
