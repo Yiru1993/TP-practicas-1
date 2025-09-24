@@ -7,7 +7,6 @@ const sessionToast = document.getElementById("toastSesion");
 const buttonCloseSesion = document.getElementById("buttonCloseSesion");
 const busqueda = document.getElementById('busqueda');
 const formLogin = document.getElementById('formLogin');
-const forgotPassword = document.getElementById('forgotPassword');
 const dynamicText = document.querySelector('.elementor-headline-dynamic-text');
 const palabras = ["¿Terror?", "¿Comedia?", "¿Acción?", "¿Drama?", "¿Ciencia ficción?", "¿Suspenso?", "¿Aventura?", "¿Cine argentino?"];
 let index = 0;
@@ -19,7 +18,6 @@ cancelModalButton.addEventListener('click', cleanModal);
 closeModalButton.addEventListener('click', cleanModal);
 buttonCloseSesion.addEventListener('click', dismissSessionToast);
 busqueda.addEventListener('input', handleSearch);
-forgotPassword.addEventListener('click', handleForgotPassword);
 
 setInterval(() => {
   index = (index + 1) % palabras.length;
@@ -104,10 +102,6 @@ function handleSearch(event) {
             p.parentElement.parentElement.parentElement.hidden = true;
         }
     });
-}
-
-function handleForgotPassword() {
-    alert("Revisa los pasos a seguir que te enviamos por email!");
 }
 
 // Lógica de puntuación de estrellas
