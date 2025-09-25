@@ -36,12 +36,10 @@ function handleLogin(event) {
     let emailInput = document.getElementById('emailInput');
     let invalidEmail = document.getElementById('invalid-email');
     if (!emailRegex.test(emailInput.value)) {
-        invalidEmail.classList.add("invalid-feedback");
         invalidEmail.hidden=false;
         emailInput.classList.add("is-invalid");
         validation = false;
     } else {
-        invalidEmail.classList.remove("invalid-feedback");
         invalidEmail.hidden=true;
         emailInput.classList.remove("is-invalid");
     }
@@ -49,12 +47,10 @@ function handleLogin(event) {
     let passwordInput = document.getElementById('passwordInput');
     let invalidPassword = document.getElementById('invalid-password');
     if (passwordInput.value.trim() === '') {
-        invalidPassword.classList.add("invalid-feedback");
         invalidPassword.hidden=false;
         passwordInput.classList.add("is-invalid");
         validation = false;
     } else {
-        invalidPassword.classList.remove("invalid-feedback");
         invalidPassword.hidden=true;
         passwordInput.classList.remove("is-invalid");
     }
@@ -62,13 +58,11 @@ function handleLogin(event) {
     if (validation) {
         let password = localStorage.getItem(emailInput.value);
         if (password === passwordInput.value) {
-            console.log("Login OK");
             cleanModal();
             let modal = bootstrap.Modal.getInstance(loginModal)
             modal.hide();
             sessionToast.hidden = false;
         } else {
-            console.log("Login ERROR");
             invalidPassword.classList.add("invalid-feedback");
             invalidPassword.hidden = false;
             passwordInput.classList.add("is-invalid");
@@ -98,11 +92,11 @@ function dismissSessionToast() {
     sessionToast.hidden = true;
 }
 
-function handleSearch(e) {
-    e.preventDefault();
+function handleSearch(event) {
+    event.preventDefault();
     let peliculas = document.querySelectorAll('.card-title');
     peliculas.forEach(p => {
-        if (p.innerHTML.toLowerCase().includes(e.target.value.toLowerCase())) {
+        if (p.innerHTML.toLowerCase().includes(event.target.value.toLowerCase())) {
             p.parentElement.parentElement.parentElement.hidden = false;
         } else {
             p.parentElement.parentElement.parentElement.hidden = true;
