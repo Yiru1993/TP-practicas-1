@@ -202,3 +202,7 @@ div h3 {
   padding: 15px;
   margin-top: 500px;
 }
+/* sobra del h3 cartelera*/ 
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
