@@ -1,42 +1,3 @@
-// --- Lógica de reseñas ---
-if (document.getElementById('formResena')) {
-    const formResena = document.getElementById('formResena');
-    const listaResenas = document.getElementById('listaResenas');
-
-    function mostrarResenas() {
-        listaResenas.innerHTML = '';
-        const resenas = JSON.parse(localStorage.getItem('resenas') || '[]');
-        if (resenas.length === 0) {
-            listaResenas.innerHTML = '<p class="text-muted">Aún no hay reseñas.</p>';
-            return;
-        }
-        resenas.forEach(r => {
-            const div = document.createElement('div');
-            div.className = 'card mb-2';
-            div.innerHTML = `<div class='card-body'>
-                <h5 class='card-title mb-1'>${r.pelicula}</h5>
-                <h6 class='card-subtitle mb-2 text-muted'>${r.nombre}</h6>
-                <p class='card-text'>${r.opinion}</p>
-            </div>`;
-            listaResenas.appendChild(div);
-        });
-    }
-
-    formResena.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const nombre = document.getElementById('nombreResena').value.trim();
-        const pelicula = document.getElementById('peliculaResena').value.trim();
-        const opinion = document.getElementById('opinionResena').value.trim();
-        if (!nombre || !pelicula || !opinion) return;
-        const resenas = JSON.parse(localStorage.getItem('resenas') || '[]');
-        resenas.unshift({ nombre, pelicula, opinion });
-        localStorage.setItem('resenas', JSON.stringify(resenas));
-        formResena.reset();
-        mostrarResenas();
-    });
-
-    mostrarResenas();
-}
 const loginModal = document.getElementById('loginModal');
 const loginButton = document.getElementById('loginButton');
 const loginAcceptButton = document.getElementById('loginAcceptButton');
@@ -46,19 +7,26 @@ const sessionToast = document.getElementById("toastSesion");
 const buttonCloseSesion = document.getElementById("buttonCloseSesion");
 const busqueda = document.getElementById('busqueda');
 const formLogin = document.getElementById('formLogin');
-const dynamicText = document.querySelector('.elementor-headline-dynamic-text');
+const dynamicText = document.getElementById('carousel');
+const stars = document.querySelectorAll('.star');
 const palabras = ["¿Terror?", "¿Comedia?", "¿Acción?", "¿Drama?", "¿Ciencia ficción?", "¿Suspenso?", "¿Aventura?", "¿Cine argentino?"];
-let index = 0;
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-
+// Seteo de eventos
 formLogin.addEventListener('submit', handleLogin);
-cancelModalButton.addEventListener('click', cleanModal);
-closeModalButton.addEventListener('click', cleanModal);
-buttonCloseSesion.addEventListener('click', dismissSessionToast);
+cancelModalButton.addEventListener('click', handleCleanModal);
+closeModalButton.addEventListener('click', handleCleanModal);
+buttonCloseSesion.addEventListener('click', handleDismissToast);
 busqueda.addEventListener('input', handleSearch);
+stars.forEach(star => {
+    star.addEventListener('mouseover', handleStarMouseover);
+    star.addEventListener('mouseout', handleStarMouseout);
+    star.addEventListener('click', handleStarClick);
+});
 
+// Logica del carousel
 setInterval(() => {
+  let index = 0;
   index = (index + 1) % palabras.length;
   dynamicText.style.opacity = 0;
 
@@ -67,6 +35,38 @@ setInterval(() => {
     dynamicText.style.opacity = 1;
   }, 500);
 }, 2000);
+
+function handleStarMouseover(event) {
+    let estrellas = event.target.parentNode.querySelectorAll('span');
+    let valor = parseInt(event.target.getAttribute('data-value'));
+    estrellas.forEach(s => {
+        if (parseInt(s.getAttribute('data-value')) <= valor) {
+            s.classList.add('selected');
+        } else {
+            s.classList.remove('selected');
+        }
+    });
+}
+
+function handleStarMouseout(event) {
+    let estrellas = event.target.parentNode.querySelectorAll('span');
+    estrellas.forEach(s => s.classList.remove('selected'));
+}
+
+function handleStarClick(event) {
+    let estrellas = event.target.parentNode.querySelectorAll('span');
+    let valor = parseInt(event.target.getAttribute('data-value'));
+    estrellas.forEach(s => {
+        s.removeEventListener('mouseover', handleStarMouseover);
+        s.removeEventListener('mouseout', handleStarMouseout);
+        s.removeEventListener('click', handleStarClick);
+        if (parseInt(s.getAttribute('data-value')) <= valor) {
+            s.classList.add('selected');
+        } else {
+            s.classList.remove('selected');
+        }
+    });
+}
 
 function handleLogin(event) {
     event.preventDefault();
@@ -111,6 +111,10 @@ function handleLogin(event) {
     return false;
 }
 
+function handleCleanModal() {
+    cleanModal();
+}
+
 function cleanModal() {
     let emailInput = document.getElementById('emailInput');
     emailInput.classList.remove("is-invalid");
@@ -127,7 +131,7 @@ function cleanModal() {
     invalidPassword.hidden = true;
 }
 
-function dismissSessionToast() {
+function handleDismissToast() {
     sessionToast.hidden = true;
 }
 
@@ -143,32 +147,42 @@ function handleSearch(event) {
     });
 }
 
-// Lógica de puntuación de estrellas
-document.querySelectorAll('.star-rating').forEach(rating => {
-    const stars = rating.querySelectorAll('.star');
-    stars.forEach(star => {
-        star.addEventListener('mouseover', function() {
-            const val = parseInt(this.getAttribute('data-value'));
-            stars.forEach(s => {
-                if (parseInt(s.getAttribute('data-value')) <= val) {
-                    s.classList.add('selected');
-                } else {
-                    s.classList.remove('selected');
-                }
-            });
+// --- Lógica de reseñas ---
+if (document.getElementById('formResena')) {
+    const formResena = document.getElementById('formResena');
+    const listaResenas = document.getElementById('listaResenas');
+
+    function mostrarResenas() {
+        listaResenas.innerHTML = '';
+        const resenas = JSON.parse(localStorage.getItem('resenas') || '[]');
+        if (resenas.length === 0) {
+            listaResenas.innerHTML = '<p class="text-muted">Aún no hay reseñas.</p>';
+            return;
+        }
+        resenas.forEach(r => {
+            const div = document.createElement('div');
+            div.className = 'card mb-2';
+            div.innerHTML = `<div class='card-body'>
+                <h5 class='card-title mb-1'>${r.pelicula}</h5>
+                <h6 class='card-subtitle mb-2 text-muted'>${r.nombre}</h6>
+                <p class='card-text'>${r.opinion}</p>
+            </div>`;
+            listaResenas.appendChild(div);
         });
-        star.addEventListener('mouseout', function() {
-            stars.forEach(s => s.classList.remove('selected'));
-        });
-        star.addEventListener('click', function() {
-            const val = parseInt(this.getAttribute('data-value'));
-            stars.forEach(s => {
-                if (parseInt(s.getAttribute('data-value')) <= val) {
-                    s.classList.add('selected');
-                } else {
-                    s.classList.remove('selected');
-                }
-            });
-        });
+    }
+
+    formResena.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const nombre = document.getElementById('nombreResena').value.trim();
+        const pelicula = document.getElementById('peliculaResena').value.trim();
+        const opinion = document.getElementById('opinionResena').value.trim();
+        if (!nombre || !pelicula || !opinion) return;
+        const resenas = JSON.parse(localStorage.getItem('resenas') || '[]');
+        resenas.unshift({ nombre, pelicula, opinion });
+        localStorage.setItem('resenas', JSON.stringify(resenas));
+        formResena.reset();
+        mostrarResenas();
     });
-});
+
+    mostrarResenas();
+}

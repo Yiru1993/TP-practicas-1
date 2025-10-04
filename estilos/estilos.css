@@ -16,9 +16,15 @@
   transition: color 0.2s;
 }
 
+/*
 .star.selected,
 .star:hover,
 .star:hover ~ .star {
+  color: gold;
+}
+*/
+
+.selected {
   color: gold;
 }
 
