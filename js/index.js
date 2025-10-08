@@ -11,6 +11,7 @@ const dynamicText = document.getElementById('carousel');
 const stars = document.querySelectorAll('.star');
 const palabras = ["¿Terror?", "¿Comedia?", "¿Acción?", "¿Drama?", "¿Ciencia ficción?", "¿Suspenso?", "¿Aventura?", "¿Cine argentino?"];
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+let index = 0;
 
 // Seteo de eventos
 formLogin.addEventListener('submit', handleLogin);
@@ -26,7 +27,6 @@ stars.forEach(star => {
 
 // Logica del carousel
 setInterval(() => {
-  let index = 0;
   index = (index + 1) % palabras.length;
   dynamicText.style.opacity = 0;
 
@@ -145,44 +145,4 @@ function handleSearch(event) {
             p.parentElement.parentElement.parentElement.hidden = true;
         }
     });
-}
-
-// --- Lógica de reseñas ---
-if (document.getElementById('formResena')) {
-    const formResena = document.getElementById('formResena');
-    const listaResenas = document.getElementById('listaResenas');
-
-    function mostrarResenas() {
-        listaResenas.innerHTML = '';
-        const resenas = JSON.parse(localStorage.getItem('resenas') || '[]');
-        if (resenas.length === 0) {
-            listaResenas.innerHTML = '<p class="text-muted">Aún no hay reseñas.</p>';
-            return;
-        }
-        resenas.forEach(r => {
-            const div = document.createElement('div');
-            div.className = 'card mb-2';
-            div.innerHTML = `<div class='card-body'>
-                <h5 class='card-title mb-1'>${r.pelicula}</h5>
-                <h6 class='card-subtitle mb-2 text-muted'>${r.nombre}</h6>
-                <p class='card-text'>${r.opinion}</p>
-            </div>`;
-            listaResenas.appendChild(div);
-        });
-    }
-
-    formResena.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const nombre = document.getElementById('nombreResena').value.trim();
-        const pelicula = document.getElementById('peliculaResena').value.trim();
-        const opinion = document.getElementById('opinionResena').value.trim();
-        if (!nombre || !pelicula || !opinion) return;
-        const resenas = JSON.parse(localStorage.getItem('resenas') || '[]');
-        resenas.unshift({ nombre, pelicula, opinion });
-        localStorage.setItem('resenas', JSON.stringify(resenas));
-        formResena.reset();
-        mostrarResenas();
-    });
-
-    mostrarResenas();
 }

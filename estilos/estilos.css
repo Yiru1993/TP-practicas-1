@@ -25,6 +25,10 @@
   box-shadow: 0 8px 8px rgba(243, 33, 33, 0.959);
 }
 
+.is-invalid {
+  color: red;
+}
+
 .container-cards {
   display: flex;
   justify-content: center;
@@ -200,6 +204,7 @@ div h3 {
   padding: 15px;
   margin-top: 500px;
 }
+
 /* sobra del h3 cartelera*/ 
 .text-shadow {
   text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
