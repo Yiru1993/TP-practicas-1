@@ -11,6 +11,7 @@ const dynamicText = document.getElementById('carousel');
 const stars = document.querySelectorAll('.star');
 const palabras = ["¿Terror?", "¿Comedia?", "¿Acción?", "¿Drama?", "¿Ciencia ficción?", "¿Suspenso?", "¿Aventura?", "¿Cine argentino?"];
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+let index = 0;
 
 // Seteo de eventos
 formLogin.addEventListener('submit', handleLogin);
@@ -26,7 +27,6 @@ stars.forEach(star => {
 
 // Logica del carousel
 setInterval(() => {
-  let index = 0;
   index = (index + 1) % palabras.length;
   dynamicText.style.opacity = 0;
 
