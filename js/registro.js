@@ -15,13 +15,23 @@ function handleSubmit() {
         let email = emailInputRegistro.value;
         let nombre = nombreInputRegistro.value;
         let password = passwordInputRegistro.value;
-        let userData = { nombre, password };
-        localStorage.setItem(email, JSON.stringify(userData));
-        registryToast.hidden = false;
-        setTimeout(function() {
-            location.href = "../index.html";
-        }, 3000)
-        // TODO Contemplar caso de user existente
+        
+        if (localStorage.getItem(email) === null) {
+            let userData = { nombre, password };
+            localStorage.setItem(email, JSON.stringify(userData));
+            registryToast.hidden = false;
+            setTimeout(function() {
+                location.href = "../index.html";
+            }, 3000)
+        } else {
+            Swal.fire({
+                title: "Error",
+                text: "Ese usuario ya se encuentra registrado",
+                background: "#202528",
+                color: "#D8DCE0",
+                confirmButtonColor: "#DC3447",
+            });
+        }
     }
 }
 
