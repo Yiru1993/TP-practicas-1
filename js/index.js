@@ -1,5 +1,7 @@
 const loginModal = document.getElementById('loginModal');
 const loginButton = document.getElementById('loginButton');
+const spanSaludo = document.getElementById('spanSaludo');
+const cerrarSesionButton = document.getElementById('cerrarSesionButton');
 const loginAcceptButton = document.getElementById('loginAcceptButton');
 const cancelModalButton = document.getElementById('cancelModalButton');
 const closeModalButton = document.getElementById('closeModalButton');
@@ -10,7 +12,7 @@ const formLogin = document.getElementById('formLogin');
 const dynamicText = document.getElementById('carousel');
 const stars = document.querySelectorAll('.star');
 const palabras = ["¿Terror?", "¿Comedia?", "¿Acción?", "¿Drama?", "¿Ciencia ficción?", "¿Suspenso?", "¿Aventura?", "¿Cine argentino?"];
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 let index = 0;
 
 // Seteo de eventos
@@ -19,6 +21,7 @@ cancelModalButton.addEventListener('click', handleCleanModal);
 closeModalButton.addEventListener('click', handleCleanModal);
 buttonCloseSesion.addEventListener('click', handleDismissToast);
 busqueda.addEventListener('input', handleSearch);
+cerrarSesionButton.addEventListener('click', handleCerrarSesion);
 stars.forEach(star => {
     star.addEventListener('mouseover', handleStarMouseover);
     star.addEventListener('mouseout', handleStarMouseout);
@@ -36,6 +39,9 @@ setInterval(() => {
   }, 500);
 }, 2000);
 
+// Chequeo de sesion
+saludarUsuario();
+
 function handleStarMouseover(event) {
     let estrellas = event.target.parentNode.querySelectorAll('span');
     let valor = parseInt(event.target.getAttribute('data-value'));
@@ -46,6 +52,13 @@ function handleStarMouseover(event) {
             s.classList.remove('selected');
         }
     });
+}
+
+function handleCerrarSesion() {
+    localStorage.removeItem("login");
+    loginButton.hidden = false;
+    spanSaludo.hidden = true;
+    cerrarSesionButton.hidden = true;
 }
 
 function handleStarMouseout(event) {
@@ -95,12 +108,14 @@ function handleLogin(event) {
     }
 
     if (validation) {
-        let password = localStorage.getItem(emailInput.value);
-        if (password === passwordInput.value) {
+        let userData = JSON.parse(localStorage.getItem(emailInput.value));
+        if (userData?.password === passwordInput.value) {
             cleanModal();
             let modal = bootstrap.Modal.getInstance(loginModal)
             modal.hide();
             sessionToast.hidden = false;
+            localStorage.setItem("login", userData?.nombre);
+            saludarUsuario();
         } else {
             invalidPassword.classList.add("invalid-feedback");
             invalidPassword.hidden = false;
@@ -109,6 +124,16 @@ function handleLogin(event) {
         }
     }
     return false;
+}
+
+function saludarUsuario() {
+    let user = localStorage.getItem("login");
+    if (user) {
+        loginButton.hidden = true;
+        spanSaludo.innerText = `Hola ${user}! 👋`;
+        spanSaludo.hidden = false;
+        cerrarSesionButton.hidden = false;
+    }
 }
 
 function handleCleanModal() {

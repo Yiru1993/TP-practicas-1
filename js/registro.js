@@ -5,17 +5,21 @@ const telInputRegistro = document.getElementById('telInputRegistro');
 const emailInputRegistro = document.getElementById('emailInputRegistro');
 const passwordInputRegistro = document.getElementById('passwordInputRegistro');
 const registryToast = document.getElementById("toastRegistro");
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
+const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,}$/;
+const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
 
 submitButton.addEventListener('click', handleSubmit);
 
 function handleSubmit() {
     if (validateInputs()) {
-        localStorage.setItem(emailInputRegistro.value, passwordInputRegistro.value);
+        let email = emailInputRegistro.value;
+        let nombre = nombreInputRegistro.value;
+        let password = passwordInputRegistro.value;
+        let userData = { nombre, password };
+        localStorage.setItem(email, JSON.stringify(userData));
         registryToast.hidden = false;
         setTimeout(function() {
-            location.href = "/index.html";
+            location.href = "../index.html";
         }, 3000)
         // TODO Contemplar caso de user existente
     }
