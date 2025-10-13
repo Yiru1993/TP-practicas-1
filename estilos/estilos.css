@@ -1,6 +1,14 @@
 /* Fuente y estilos globales */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.5); /* negro con 50% opacidad */
+  z-index: -1;
+}
+
 /* Estilos para la puntuación de estrellas */
 .star-rating {
   display: flex;
@@ -42,33 +50,47 @@
 
 /* Cartelera con degradado rojo/negro */
 body#pagina-cartelera {
-  background: linear-gradient(135deg, #3a0d0d, #000000);
+  /*background: linear-gradient(135deg, #3a0d0d, #000000);*/
   background-image: url("../imagenes/ticket.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
   margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 /*titulo cartelera*/
 .mb-4 {
   color: white;
   padding: 30px;
-  font-size: 40px;
+  font-size: 2.5rem;
   text-align: center;
  } 
 
 /* Estrenos con imagen de ejemplo */
 body#pagina-estrenos {
-  background-image: url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1400&q=80");
+  background-image: url("../imagenes/butak4.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 /* Contacto con degradado azul */
 body#pagina-contacto {
-  background: linear-gradient(135deg, #0d1a3a, #000000);
+  background: url("../imagenes/butak2.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0; 
+  font-family: 'Poppins', Arial, sans-serif;
+}
+body#pagina-reseñas {
+  background-image: url("../imagenes/butaka3.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 /* Navbar */
@@ -94,13 +116,13 @@ body#pagina-contacto {
 }
 
 /* body */
-body {
+body#pagina-index {
   background-image: url("../imagenes/butak.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   color: #ffffff;
 }
 
@@ -113,8 +135,10 @@ header {
 }
 
 header h1 {
+  font-weight: bold;
+  color: red;
   margin: 0;
-  font-size: 2.5em;
+  font-size: 3rem;
 }
 
 nav {
@@ -138,22 +162,25 @@ nav a:hover {
 div h2 {
   color: white;
   padding: 30px;
-  font-size: 60px;
+  font-size: 2.5rem;
   text-align: center;
+  text-shadow: 2px 2px 8px #000
 }
 
 h2 {
   color: white;
   padding: 30px;
-  font-size: 60px;
+  font-size: 2.5rem;
   text-align: center;
+  text-shadow: 2px 2px 8px #000
 }
 
 div h3 {
-  color: red;
+  color: #FFD580;
   padding: 10px;
-  font-size: 40px;
+  font-size: 2rem;
   text-align: center;
+  text-shadow: 2px 2px 8px #000; /* sombra negra para mejor legibilidad */
 }
 
 /* container */
@@ -205,7 +232,21 @@ div h3 {
   margin-top: 500px;
 }
 
-/* sobra del h3 cartelera*/ 
-.text-shadow {
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+/* Estilo específico para h3.fecha.estrenos */
+h3.fecha.estrenos {
+  color: #FFD580;
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 2px 2px 8px #000;
+  padding: 10px;
 }
+
+/* sobra del h3 cartelera*/ 
+h3.text-shadow {
+  color: #FFD580;
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 2px 2px 8px #000; /* sombra negra para contraste */
+  padding: 10px;
+  }
+
