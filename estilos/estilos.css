@@ -32,6 +32,10 @@ body#pagina-cartelera {
   background: url("../imagenes/ticket.jpg") center/cover fixed;
 }
 
+body#pagina-trailer {
+  background: url("../imagenes/butak4.jpg") center/cover fixed;
+}
+
 body#pagina-estrenos {
   background: url("../imagenes/butak4.jpg") center/cover fixed;
 }
@@ -116,7 +120,7 @@ h2, div h2 {
 div h3,
 h3.text-shadow,
 h3.fecha.estrenos {
-  color: #FFD580;
+  color: #ff4c4c;
   font-size: 2rem;
   text-align: center;
   text-shadow: 2px 2px 8px #000;
