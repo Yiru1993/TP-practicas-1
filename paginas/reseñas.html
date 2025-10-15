@@ -17,58 +17,77 @@
     <h1> 🎥 PORTALPOP CINE 🎞️ </h1>
   </header>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-contacto" aria-controls="navbar-contacto" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <div class="collapse navbar-collapse" id="navbar-contacto">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="cartelera.html">Cartelera</a></li>
-            <li class="nav-item"><a class="nav-link" href="estrenos.html">Próximos Estrenos</a></li>
-            <li class="nav-item"><a class="nav-link active" href="contacto.html">Contacto</a></li>
-            <li class="nav-item"><a class="nav-link" href="reseñas.html">Reseñas</a></li>
-          </ul>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-contacto" aria-controls="navbar-contacto" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar-contacto">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="cartelera.html">Cartelera</a></li>
+          <li class="nav-item"><a class="nav-link" href="estrenos.html">Próximos Estrenos</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link active" href="reseñas.html">Reseñas</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Títulos principales -->
+  <section class="text-center my-5">
+    <h2 class="cartelera-titulo mb-4 text-center">🎬 DEJANOS TU OPINION 🎬</h2>
+    <h3 class="text-shadow">🪑 Convertite en Critico de cine ✍️</h3>
+  </section>
+
+  <!-- Contenido principal -->
+  <main class="container my-4">
+    <div class="row g-4">
+      
+      <!-- Formulario -->
+      <div class="col-md-6">
+        <div class="card bg-dark bg-opacity-100 shadow-sm border-1 h-0">
+          <div class="card-body">
+            <h3>Escribe tu Reseña</h3>
+            <form id="formReseña" class="mb-3">
+              <div class="mb-3">
+                <label for="nombreReseña" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombreReseña" required>
+              </div>
+              <div class="mb-3">
+                <label for="peliculaReseña" class="form-label">Película</label>
+                <input type="text" class="form-control" id="peliculaReseña" required>
+              </div>
+              <div class="mb-3">
+                <label for="opinionReseña" class="form-label">Opinión</label>
+                <textarea class="form-control" id="opinionReseña" rows="3" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-danger w-100">Enviar reseña</button>
+            </form>
+          </div>
         </div>
       </div>
-    </nav>
-    <h2 class="cartelera-titulo mb-4 text-center">🎬 Deja tu opinion 🎬</h2>
-    <h3 class="text-shadow">🪑 Conviertete en Critico de cine ✍️</h3>
-    
-    
-    <main class="container my-4">
-      <section class="mb-4">
-        
-        <form id="formReseña" class="mb-3">
-          <div class="mb-3">
-            <label for="nombreReseña" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombreReseña" required>
-          </div>
-          <div class="mb-3">
-            <label for="peliculaReseña" class="form-label">Película</label>
-            <input type="text" class="form-control" id="peliculaReseña" required>
-          </div>
-          <div class="mb-3">
-            <label for="opinionReseña" class="form-label">Opinión</label>
-            <textarea class="form-control" id="opinionReseña" rows="3" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-danger">Enviar reseña</button>
-        </form>
-      </section>
-      <section>
-        <h2>Opiniones de otros usuarios</h2>
-        <div id="listaReseñas" class="mt-3"></div>
-        <p  id="mensajeNoReseñas" class="text-muted" hidden>Aún no hay reseñas.</p>
-      </section>
-    </main>
 
-    <!-- Footer -->
-    <footer class="footer text-center py-3 mt-5 bg-dark text-light">
-      © 2025 Portal de Cine. Todos los derechos reservados.
-    </footer>
+      <!-- Lista de reseñas -->
+      <div class="col-md-6">
+        <div class="card bg-dark bg-opacity-100 shadow-sm border-1 h-0">
+          <div class="card-body">
+            <h3>CRITICASPOP Usuarios</h3>
+            <div id="listaReseñas" class="mt-3"></div>
+            <p id="mensajeNoReseñas" class="text-muted" hidden>Aún no hay reseñas.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer text-center py-3 mt-5 bg-dark text-light">
+    © 2025 Portal de Cine. Todos los derechos reservados.
+  </footer>
 
 </body>
 </html>
