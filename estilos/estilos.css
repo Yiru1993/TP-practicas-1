@@ -44,6 +44,21 @@ body#pagina-reseñas {
   background: url("../imagenes/butaka3.jpg") center/cover fixed;
 }
 
+/* Header */
+header {
+  background-color: #0f0e0e;
+  padding: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+header h1 {
+  color: red;
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 700 !important;
+}
+
 /* Navbar */
 .navbar {
   background-color: rgba(20, 20, 20, 0.9) !important;
@@ -64,21 +79,6 @@ body#pagina-reseñas {
 .nav-link:hover {
   color: #ff4c4c !important;
   transform: scale(1.1);
-}
-
-/* Header */
-header {
-  background-color: #0f0e0e;
-  padding: 20px;
-  text-align: center;
-  font-weight: 700;
-}
-
-header h1 {
-  color: red;
-  font-size: 3rem;
-  margin: 0;
-  font-weight: 700 !important;
 }
 
 nav {
