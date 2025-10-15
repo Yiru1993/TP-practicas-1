@@ -1,7 +1,7 @@
 ## TP Practicas Profesionalizantes I
 
 Integrantes:
-- Burgera Christian
+- Burguera Christian
 - De Zan Nicolas
 - Roa Lourdes
 - Greco Gonzalo

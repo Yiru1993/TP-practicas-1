@@ -1,15 +1,178 @@
-/* Fuente y estilos globales */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+  html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', Arial, sans-serif /*!important*/;
+}
 
 body::before {
   content: "";
   position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  background: rgba(0,0,0,0.5); /* negro con 50% opacidad */
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.5);
   z-index: -1;
 }
 
-/* Estilos para la puntuación de estrellas */
+/* Páginas */
+body#pagina-index {
+  background: url("../imagenes/butak.jpg") center/cover fixed;
+  color: #fff;
+}
+
+body#pagina-cartelera {
+  background: url("../imagenes/ticket.jpg") center/cover fixed;
+}
+
+body#pagina-estrenos {
+  background: url("../imagenes/butak4.jpg") center/cover fixed;
+}
+
+body#pagina-contacto {
+  background: url("../imagenes/butak2.jpg") center/cover fixed;
+}
+
+body#pagina-reseñas {
+  background: url("../imagenes/butaka3.jpg") center/cover fixed;
+}
+
+/* Navbar */
+.navbar {
+  background-color: rgba(20, 20, 20, 0.9) !important;
+  margin-top: 0 !important;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.nav-link {
+  color: #fff !important;
+  margin: 0 10px;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.nav-link:hover {
+  color: #ff4c4c !important;
+  transform: scale(1.1);
+}
+
+/* Header */
+header {
+  background-color: #0f0e0e;
+  padding: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+header h1 {
+  color: red;
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 700 !important;
+}
+
+nav {
+  background-color: #333;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Titulares */
+h2, div h2 {
+  color: white;
+  padding: 30px;
+  font-size: 2.5rem;
+  text-align: center;
+  text-shadow: 2px 2px 8px #000;
+}
+.mb-4 {
+  color: white;
+  padding: 30px;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+div h3,
+h3.text-shadow,
+h3.fecha.estrenos {
+  color: #FFD580;
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 2px 2px 8px #000;
+  padding: 10px;
+}
+
+/* Contenedores */
+.container,
+.container-toast {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.container-cards {
+  display: flex;
+  justify-content: center;
+}
+
+/* Cards */
+.card {
+  background-color: #070707;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.card img {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  box-shadow: 0 8px 8px rgba(243, 33, 33, 0.959);
+  transition: transform 0.3s;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.card-text2 {
+  width: 550px;
+  text-align: left;
+}
+
+/* Buscador y validaciones */
+.busqueda {
+  width: 35% !important;
+  box-shadow: 0 8px 8px rgba(243, 33, 33, 0.959);
+}
+
+.is-invalid {
+  color: red;
+}
+
+/* Puntuación con estrellas */
 .star-rating {
   display: flex;
   flex-direction: row-reverse;
@@ -28,202 +191,7 @@ body::before {
   color: gold;
 }
 
-.busqueda {
-  width: 35% !important;
-  box-shadow: 0 8px 8px rgba(243, 33, 33, 0.959);
-}
-
-.is-invalid {
-  color: red;
-}
-
-.container-cards {
-  display: flex;
-  justify-content: center;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Cartelera con degradado rojo/negro */
-body#pagina-cartelera {
-  /*background: linear-gradient(135deg, #3a0d0d, #000000);*/
-  background-image: url("../imagenes/ticket.jpg");
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  margin: 0;
-  font-family: 'Poppins', Arial, sans-serif;
-}
-
-/*titulo cartelera*/
-.mb-4 {
-  color: white;
-  padding: 30px;
-  font-size: 2.5rem;
-  text-align: center;
- } 
-
-/* Estrenos con imagen de ejemplo */
-body#pagina-estrenos {
-  background-image: url("../imagenes/butak4.jpg");
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  font-family: 'Poppins', Arial, sans-serif;
-}
-
-/* Contacto con degradado azul */
-body#pagina-contacto {
-  background: url("../imagenes/butak2.jpg");
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  margin: 0; 
-  font-family: 'Poppins', Arial, sans-serif;
-}
-body#pagina-reseñas {
-  background-image: url("../imagenes/butaka3.jpg");
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  font-family: 'Poppins', Arial, sans-serif;
-}
-
-/* Navbar */
-.navbar {
-  background-color: rgba(20, 20, 20, 0.9) !important;
-  margin-top: 0 !important;
-}
-
-.navbar-brand {
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.nav-link {
-  color: #ffffff !important;
-  margin: 0 10px;
-  transition: color 0.3s, transform 0.2s;
-}
-
-.nav-link:hover {
-  color: #ff4c4c !important;
-  transform: scale(1.1);
-}
-
-/* body */
-body#pagina-index {
-  background-image: url("../imagenes/butak.jpg");
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  margin: 0;
-  font-family: 'Poppins', Arial, sans-serif;
-  color: #ffffff;
-}
-
-/* Header */ 
-header {
-  background-color: #0f0e0e;
-  padding: 20px;
-  text-align: center;
-  font-weight: 700;
-}
-
-header h1 {
-  font-weight: bold;
-  color: red;
-  margin: 0;
-  font-size: 3rem;
-}
-
-nav {
-  background-color: #333;
-  padding: 10px;
-  text-align: center;
-}
-
-nav a {
-  color: #ffffff;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-/* Titulares */
-div h2 {
-  color: white;
-  padding: 30px;
-  font-size: 2.5rem;
-  text-align: center;
-  text-shadow: 2px 2px 8px #000
-}
-
-h2 {
-  color: white;
-  padding: 30px;
-  font-size: 2.5rem;
-  text-align: center;
-  text-shadow: 2px 2px 8px #000
-}
-
-div h3 {
-  color: #FFD580;
-  padding: 10px;
-  font-size: 2rem;
-  text-align: center;
-  text-shadow: 2px 2px 8px #000; /* sombra negra para mejor legibilidad */
-}
-
-/* container */
-.container {
-  padding: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.container-toast {
-  margin-top: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* card */
-.card{
-  background-color: #070707;
-  border-radius: 10x;
-  margin: 20px;
-}
-
-.movie-card:hover {
-  transform: scale(1.05);
-}
-
-.card img {
-  width: 100%;
-  height: 320px;
-  overflow: hidden;
-  box-shadow: 0 8px 8px rgba(243, 33, 33, 0.959);
-  transition: transform 0.3s;
-}
-
-.card-text2{
-  width: 550px;
-  text-align: left;
-
-}
-
-/* footer */
+/* Footer */
 .footer {
   background-color: #1a1a1a;
   color: #ccc;
@@ -231,22 +199,3 @@ div h3 {
   padding: 15px;
   margin-top: 500px;
 }
-
-/* Estilo específico para h3.fecha.estrenos */
-h3.fecha.estrenos {
-  color: #FFD580;
-  font-size: 2rem;
-  text-align: center;
-  text-shadow: 2px 2px 8px #000;
-  padding: 10px;
-}
-
-/* sobra del h3 cartelera*/ 
-h3.text-shadow {
-  color: #FFD580;
-  font-size: 2rem;
-  text-align: center;
-  text-shadow: 2px 2px 8px #000; /* sombra negra para contraste */
-  padding: 10px;
-  }
-
