@@ -117,10 +117,9 @@ h2, div h2 {
   text-align: center;
 }
 
-div h3,
-h3.text-shadow,
+div h3,h3.text-shadow,
 h3.fecha.estrenos {
-  color: #ff4c4c;
+  color: rgb(245, 239, 153);
   font-size: 2rem;
   text-align: center;
   text-shadow: 2px 2px 8px #000;
